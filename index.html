@@ -32,50 +32,6 @@
         </div>
     </header>
 
-<!-- SECCIÓN LÍNEAS DE INVESTIGACIÓN (LGAC) CON CLICK EVENT -->
-<section id="lineas" class="section-padding">
-    <div class="container">
-        <h2 class="section-title">Líneas de Generación y Aplicación del Conocimiento</h2>
-        <div class="lines-grid">
-            <div class="line-card" onclick="openModal('gestion')">
-                <i class="fas fa-project-diagram"></i>
-                <h3>Gestión de Proyectos</h3>
-                <p>Haz clic para ver descripción y plan de estudios.</p>
-            </div>
-            <div class="line-card" onclick="openModal('iiot')">
-                <i class="fas fa-robot"></i>
-                <h3>Internet Industrial de las Cosas (IIoT)</h3>
-                <p>Haz clic para ver descripción y plan de estudios.</p>
-            </div>
-            <div class="line-card" onclick="openModal('sostenibilidad')">
-                <i class="fas fa-recycle"></i>
-                <h3>Procesos Industriales Sostenibles</h3>
-                <p>Haz clic para ver descripción y plan de estudios.</p>
-            </div>
-            <div class="line-card" onclick="openModal('fabricacion')">
-                <i class="fas fa-industry"></i>
-                <h3>Procesos de Fabricación</h3>
-                <p>Haz clic para ver descripción y plan de estudios.</p>
-            </div>
-            <div class="line-card" onclick="openModal('simulacion')">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Simulación Productiva</h3>
-                <p>Haz clic para ver descripción y plan de estudios.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- MODAL PARA DETALLES DE LÍNEAS -->
-<div id="lineModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div id="modalBody">
-            <!-- El contenido se cargará dinámicamente con JS -->
-        </div>
-    </div>
-</div>
-
     <!-- SECCIÓN NÚCLEO ACADÉMICO (7 DOCENTES COMPLETOS) -->
     <section id="profesores" class="section-padding bg-light">
         <div class="container">
@@ -204,6 +160,49 @@
     <footer>
         <p>&copy; 2026 Maestría en Ingeniería - MIOPM | Universidad Tecnológica de Tlaxcala</p>
     </footer>
+<!-- SECCIÓN LÍNEAS DE INVESTIGACIÓN (LGAC) CON CLICK EVENT -->
+<section id="lineas" class="section-padding">
+    <div class="container">
+        <h2 class="section-title">Líneas de Generación y Aplicación del Conocimiento</h2>
+        <div class="lines-grid">
+            <div class="line-card" onclick="openModal('gestion')">
+                <i class="fas fa-project-diagram"></i>
+                <h3>Gestión de Proyectos</h3>
+                <p>Haz clic para ver descripción y plan de estudios.</p>
+            </div>
+            <div class="line-card" onclick="openModal('iiot')">
+                <i class="fas fa-robot"></i>
+                <h3>Internet Industrial de las Cosas (IIoT)</h3>
+                <p>Haz clic para ver descripción y plan de estudios.</p>
+            </div>
+            <div class="line-card" onclick="openModal('sostenibilidad')">
+                <i class="fas fa-recycle"></i>
+                <h3>Procesos Industriales Sostenibles</h3>
+                <p>Haz clic para ver descripción y plan de estudios.</p>
+            </div>
+            <div class="line-card" onclick="openModal('fabricacion')">
+                <i class="fas fa-industry"></i>
+                <h3>Procesos de Fabricación</h3>
+                <p>Haz clic para ver descripción y plan de estudios.</p>
+            </div>
+            <div class="line-card" onclick="openModal('simulacion')">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Simulación Productiva</h3>
+                <p>Haz clic para ver descripción y plan de estudios.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- MODAL PARA DETALLES DE LÍNEAS -->
+<div id="lineModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalBody">
+            <!-- El contenido se cargará dinámicamente con JS -->
+        </div>
+    </div>
+</div>
+    
 </body>
 </html>
