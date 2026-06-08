@@ -1,112 +1,111 @@
-// NAVEGACIÓN Y ANIMACIONES
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // Función de filtrado de proyectos
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectItems = document.querySelectorAll('.project-item');
-
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remover clase active de todos
-            filterButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filterValue = btn.getAttribute('data-filter');
-
-            projectItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                    item.style.display = 'block';
-                    item.style.animation = 'fadeIn 0.5s ease forwards';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
-
-    // Efecto de scroll en la barra de navegación
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            nav.style.background = 'rgba(128, 0, 0, 0.95)';
-            nav.style.padding = '0.7rem 5%';
-        } else {
-            nav.style.background = 'var(--primary)';
-            nav.style.padding = '1rem 5%';
-        }
-    });
-});
-
-// Animación simple de aparición
-const style = document.createElement('style');
-style.innerHTML = `
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}`;
-document.head.appendChild(style);
-
-// FUNCIÓN PARA MOSTRAR DETALLES DE LÍNEAS (Simulación de Modal)
-function showDetail(lineId) {
-    alert("Cargando información detallada de la línea de investigación extraída de las matrices de competencias [7-9]...");
-}
-
+// DATOS DE LÍNEAS DE INVESTIGACIÓN Y MATERIAS
 const lineData = {
     gestion: {
         title: "Gestión de Proyectos",
-        desc: "Se enfoca en la estructuración de proyectos productivos con criterios de rentabilidad y mejora continua [1]. Busca administrar recursos humanos y tecnológicos para el cumplimiento de objetivos organizacionales [11].",
-        curriculum: ["Administración para Ingenieros", "Planeación Estratégica y Análisis de Operaciones", "Marco Legal para Desarrollo de Proyectos", "Técnicas para la Solución de Problemas [10]"]
+        desc: "Estructuración de proyectos productivos con criterios de rentabilidad y mejora continua [11, 12].",
+        curriculum: ["Administración para Ingenieros", "Análisis Financiero", "Planeación Estratégica", "Marco Legal de Proyectos"]
     },
     iiot: {
         title: "Internet Industrial de las Cosas (IIoT)",
-        desc: "Desarrolla modelos tecnológicos para el flujo de procesos mediante la interacción humano-máquina y tecnologías de conectividad avanzada [12]. Implementa soluciones de Industria 4.0 y Big Data [13].",
-        curriculum: ["Industria 4.0 y Transformación Digital", "Big Data", "Sistemas Ciberfísicos y IIoT", "Diseño de Sistemas de Control Inteligente [13]"]
+        desc: "Integración de sensores y conectividad avanzada para la Industria 4.0 [10, 13].",
+        curriculum: ["Big Data", "Sistemas Ciberfísicos", "Industria 4.0", "Control Inteligente"]
     },
     sostenibilidad: {
         title: "Procesos Industriales Sostenibles",
-        desc: "Optimiza sistemas industriales bajo un enfoque de flujos sostenibles y economía circular para minimizar el impacto ambiental [14, 15].",
-        curriculum: ["Economía Circular", "Desarrollo de Productos Innovadores", "Planeación Estratégica", "Gestión de Capital Humano [16]"]
+        desc: "Optimización mediante flujos sostenibles y economía circular [14, 15].",
+        curriculum: ["Economía Circular", "Energías Renovables", "Gestión de Capital Humano", "Ingeniería Sostenible"]
     },
     fabricacion: {
         title: "Procesos de Fabricación",
-        desc: "Diseña y mejora métodos de manufactura y transformación de materiales, asegurando la calidad y eficiencia mediante metrología avanzada [17, 18].",
-        curriculum: ["Propiedades de los Materiales Comerciales", "Metrología Avanzada", "Procesos de Fabricación I y II", "Optimización de Operaciones en Talleres [18]"]
+        desc: "Mejora de métodos de manufactura y transformación de materiales [16, 17].",
+        curriculum: ["Metrología Avanzada", "Materiales Comerciales", "Optimización de Operaciones", "Procesos de Manufactura"]
     },
     simulacion: {
         title: "Simulación Productiva",
-        desc: "Utiliza herramientas de modelado virtual (CAD/CAM/CAE) y simulación estadística para la toma de decisiones estratégicas en planta [9, 19].",
-        curriculum: ["Modelos y Simulación Estadística", "Simulación de Sistemas de Control", "Sistemas de Modelado Discreto", "Diseño Mecánico Avanzado [9]"]
+        desc: "Modelado virtual y simulación estadística para toma de decisiones [18, 19].",
+        curriculum: ["Modelado Discreto", "Diseño Mecánico CAD", "Algoritmos Lineales", "Simulación Estadística"]
     }
 };
 
+// DATOS DEL NÚCLEO ACADÉMICO
+const profData = {
+    galaviz: {
+        name: "Dr. José Víctor Galaviz Rodríguez",
+        cv: "Doctor en Planeación Estratégica. Líder del Cuerpo Académico [8, 20].",
+        lines: "Ingeniería en Procesos y Sostenibilidad.",
+        projects: ["Patente: Máquina de selección de semillas [1].", "Sostenibilidad de cadena agroalimentaria [21]."]
+    },
+    sonia: {
+        name: "Dra. Sonia López Rodríguez",
+        cv: "Doctora en Tecnología e Innovación. Experta en Ciencias Inmersivas [9].",
+        lines: "Industria 4.0, RA y RV.",
+        projects: ["App de Realidad Aumentada para plantas medicinales [4].", "Preservación del idioma Otomí mediante software [22]."]
+    },
+    javier: {
+        name: "Dr. Francisco Javier Espinosa Moreno",
+        cv: "Dr. en Ciencias en Energía Renovable. Miembro del SNII [3].",
+        lines: "Sistemas Energéticos Sustentables.",
+        projects: ["Producción de Hidrógeno Verde [3].", "Modelado de sistemas de electrometanogénesis."]
+    },
+    corona: {
+        name: "Dr. José Luis Hernández Corona",
+        cv: "Dr. en Sistemas Computacionales. Especialista en Instrumentación [23].",
+        lines: "Automatización y Mecatrónica.",
+        projects: ["Identificación de Robot CRS A465 [23].", "Desarrollo de laboratorios remotos [24]."]
+    },
+    roman: {
+        name: "Dr. Román Daniel Romero Mitre",
+        cv: "Dr. en Manufactura Avanzada. Experto en CAD/CAM/CNC [7].",
+        lines: "Optimización de procesos de maquinado.",
+        projects: ["Análisis de vida de herramientas de corte [25].", "Diseño industrial de soportes para dispositivos [26]."]
+    },
+    jonny: {
+        name: "M.I. Jonny Carmona Reyes",
+        cv: "Maestro en Automatización y Control [27].",
+        lines: "Diseño Instruccional 4.0 y Tutoría Inteligente.",
+        projects: ["Sistemas de detección de objetos con Raspberry [28].", "Modelos contra la deserción escolar [29]."]
+    },
+    ricardo: {
+        name: "M. en C. Ricardo Ramos Aguilar",
+        cv: "Mtro. en Sistemas Computacionales. Candidato al SNI [30].",
+        lines: "Inteligencia Artificial y Procesamiento de Señales.",
+        projects: ["Análisis de bioseñales para salud.", "Reconocimiento de emociones mediante Machine Learning [31]."]
+    }
+};
+
+// FUNCIONES PARA CONTROL DE MODALES
+const modal = document.getElementById("infoModal");
+const body = document.getElementById("modalBody");
+
 function openModal(id) {
     const data = lineData[id];
-    const modal = document.getElementById("lineModal");
-    const body = document.getElementById("modalBody");
-
     body.innerHTML = `
         <h2>${data.title}</h2>
         <p><strong>Descripción:</strong> ${data.desc}</p>
-        <h3>Materias de Especialidad (Plan de Estudios)</h3>
+        <hr>
+        <h3>Materias de Especialidad</h3>
         <table class="curriculum-table">
-            <thead>
-                <tr><th>Ciclo de Formación</th><th>Asignaturas Clave</th></tr>
-            </thead>
-            <tbody>
-                ${data.curriculum.map(sub => `<tr><td>Especialización</td><td>${sub}</td></tr>`).join('')}
-                <tr><td>Transversales</td><td>Ética, Matemáticas Avanzadas, Lean Manufacturing [13]</td></tr>
-            </tbody>
+            <tr><th>Ciclo</th><th>Asignatura</th></tr>
+            ${data.curriculum.map(m => `<tr><td>Formación</td><td>${m}</td></tr>`).join('')}
+            <tr><td>Transversal</td><td>Ética y Lean Manufacturing</td></tr>
         </table>
     `;
     modal.style.display = "block";
 }
 
-function closeModal() {
-    document.getElementById("lineModal").style.display = "none";
+function openProfModal(id) {
+    const data = profData[id];
+    body.innerHTML = `
+        <h2>${data.name}</h2>
+        <p><strong>Resumen CV:</strong> ${data.cv}</p>
+        <p><strong>Líneas de Trabajo:</strong> ${data.lines}</p>
+        <hr>
+        <h3>Proyectos Actuales</h3>
+        <ul>${data.projects.map(p => `<li>${p}</li>`).join('')}</ul>
+    `;
+    modal.style.display = "block";
 }
 
-// Cerrar si se hace clic fuera del contenido
-window.onclick = function(event) {
-    let modal = document.getElementById("lineModal");
-    if (event.target == modal) { modal.style.display = "none"; }
-}
+function closeModal() { modal.style.display = "none"; }
+
+window.onclick = function(event) { if (event.target == modal) closeModal(); }
