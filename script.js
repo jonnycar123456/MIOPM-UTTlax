@@ -37,8 +37,25 @@ function zoomImage() {
     modal.style.display = "block";
 }
 
-// Iniciar el cambio automático cada 5 segundos
-setInterval(nextSlide, 5000);
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+// Función manual para las flechas
+function changeSlide(direction) {
+    // 1. Quitar la clase active de la imagen actual
+    slides[currentSlide].classList.remove('active');
+    
+    // 2. Calcular la nueva posición (adelante o atrás)
+    currentSlide = (currentSlide + direction + slides.length) % slides.length;
+    
+    // 3. Mostrar la nueva imagen
+    slides[currentSlide].classList.add('active');
+}
+
+// Función automática (cada 5 segundos)
+setInterval(() => {
+    changeSlide(1);
+}, 5000);
 
 // Mantener las funciones de los modales que ya tenías (Líneas y Profesores)
 function closeModal() {

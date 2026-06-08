@@ -23,12 +23,17 @@
 
     <!-- SLIDER / HERO -->
     <header id="inicio" class="hero">
-        <div class="slider" onclick="zoomImage()" style="cursor: pointer;">
+        <div class="slider" onclick="zoomImage()">
             <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/campus.jpg');"></div>
             <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/actividad1.jpg');"></div>
             <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/actividad2.jpg');"></div>
             <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/actividad3.jpg');"></div>
         </div>
+
+	<!-- BOTONES DE NAVEGACIÓN -->
+    		<button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+   		<button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
+
         <div class="hero-content">
             <h1>Maestría en Ingeniería para la Optimización de Procesos de Manufactura</h1>
             <p>Innovación tecnológica y desarrollo industrial sostenible con enfoque en Industria 4.0.</p>
