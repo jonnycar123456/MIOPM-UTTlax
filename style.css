@@ -17,6 +17,22 @@ body { scroll-behavior: smooth; color: var(--dark); line-height: 1.6; }
 .nav-links a { color: white; text-decoration: none; padding: 0 15px; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
 .nav-links a:hover { color: #ffcc00; }
 
+/* Mejora la visualización en el banner principal */
+.slide {
+    background-size: cover; /* Mantiene el llenado del banner */
+    background-position: center; /* Centra la imagen para que no se vea tan cortada */
+    cursor: pointer;
+}
+
+/* Ajuste para que la imagen dentro del modal se vea completa */
+#modalBody img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain; /* Esto asegura que la imagen se vea COMPLETA en el cuadro emergente */
+    border-radius: 8px;
+}
+
 /* SLIDER */
 .hero { height: 85vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; }
 .slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
