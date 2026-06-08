@@ -169,4 +169,23 @@ body {
     .hero h1 {
         font-size: 2rem;
     }
+    .lines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajustado para 5 tarjetas */
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.professors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.mail-link {
+    font-size: 0.85rem;
+    color: var(--primary);
+    text-decoration: none;
+    word-break: break-all; /* Evita que correos largos rompan la tarjeta */
+}
 }
