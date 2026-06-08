@@ -32,39 +32,49 @@
         </div>
     </header>
 
-    <!-- SECCIÓN LÍNEAS DE INVESTIGACIÓN (LGAC) ACTUALIZADA -->
-    <section id="lineas" class="section-padding">
-        <div class="container">
-            <h2 class="section-title">Líneas de Generación y Aplicación del Conocimiento</h2>
-            <div class="lines-grid">
-                <div class="line-card">
-                    <i class="fas fa-project-diagram"></i>
-                    <h3>Gestión de Proyectos</h3>
-                    <p>Optimización y rentabilidad de proyectos industriales bajo estándares internacionales.</p>
-                </div>
-                <div class="line-card">
-                    <i class="fas fa-robot"></i>
-                    <h3>Internet Industrial de las Cosas (IIoT)</h3>
-                    <p>Integración de sensores, datos y conectividad en entornos de manufactura avanzada.</p>
-                </div>
-                <div class="line-card">
-                    <i class="fas fa-recycle"></i>
-                    <h3>Procesos Industriales Sostenibles</h3>
-                    <p>Desarrollo de sistemas productivos con mínimo impacto ambiental y uso de energías limpias.</p>
-                </div>
-                <div class="line-card">
-                    <i class="fas fa-industry"></i>
-                    <h3>Procesos de Fabricación</h3>
-                    <p>Diseño y mejora de métodos de manufactura y transformación de materiales.</p>
-                </div>
-                <div class="line-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Simulación Productiva</h3>
-                    <p>Modelado virtual de flujos de trabajo para la toma de decisiones estratégicas.</p>
-                </div>
+<!-- SECCIÓN LÍNEAS DE INVESTIGACIÓN (LGAC) CON CLICK EVENT -->
+<section id="lineas" class="section-padding">
+    <div class="container">
+        <h2 class="section-title">Líneas de Generación y Aplicación del Conocimiento</h2>
+        <div class="lines-grid">
+            <div class="line-card" onclick="openModal('gestion')">
+                <i class="fas fa-project-diagram"></i>
+                <h3>Gestión de Proyectos</h3>
+                <p>Haz clic para ver descripción y plan de estudios.</p>
+            </div>
+            <div class="line-card" onclick="openModal('iiot')">
+                <i class="fas fa-robot"></i>
+                <h3>Internet Industrial de las Cosas (IIoT)</h3>
+                <p>Haz clic para ver descripción y plan de estudios.</p>
+            </div>
+            <div class="line-card" onclick="openModal('sostenibilidad')">
+                <i class="fas fa-recycle"></i>
+                <h3>Procesos Industriales Sostenibles</h3>
+                <p>Haz clic para ver descripción y plan de estudios.</p>
+            </div>
+            <div class="line-card" onclick="openModal('fabricacion')">
+                <i class="fas fa-industry"></i>
+                <h3>Procesos de Fabricación</h3>
+                <p>Haz clic para ver descripción y plan de estudios.</p>
+            </div>
+            <div class="line-card" onclick="openModal('simulacion')">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Simulación Productiva</h3>
+                <p>Haz clic para ver descripción y plan de estudios.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- MODAL PARA DETALLES DE LÍNEAS -->
+<div id="lineModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalBody">
+            <!-- El contenido se cargará dinámicamente con JS -->
+        </div>
+    </div>
+</div>
 
     <!-- SECCIÓN NÚCLEO ACADÉMICO (7 DOCENTES COMPLETOS) -->
     <section id="profesores" class="section-padding bg-light">
@@ -197,24 +207,3 @@
 
 </body>
 </html>
-2. Ajustes en style.css para que se vean bien las 5 líneas:
-Agrega o ajusta estas líneas en tu archivo CSS para que la cuadrícula soporte 5 tarjetas y se vea profesional:
-.lines-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajustado para 5 tarjetas */
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.professors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.mail-link {
-    font-size: 0.85rem;
-    color: var(--primary);
-    text-decoration: none;
-    word-break: break-all; /* Evita que correos largos rompan la tarjeta */
-}
