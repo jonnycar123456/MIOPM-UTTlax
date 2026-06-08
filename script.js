@@ -1,16 +1,18 @@
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
-// CAMBIO DE SLIDE (MANUAL Y AUTOMÁTICO)
+// Lógica para cambiar de imagen
 function changeSlide(direction) {
+    if (slides.length === 0) return;
     slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide + direction + slides.length) % slides.length;
     slides[currentSlide].classList.add('active');
 }
 
-setInterval(() => changeSlide(1), 5000); // Cambio cada 5 segundos
+// Slider automático
+setInterval(() => changeSlide(1), 5000);
 
-// FUNCIÓN ZOOM DE IMAGEN
+// Zoom de imagen
 function zoomImage() {
     const activeSlide = document.querySelector('.slide.active');
     let bgImage = activeSlide.style.backgroundImage;
@@ -20,16 +22,20 @@ function zoomImage() {
     document.getElementById("infoModal").style.display = "block";
 }
 
-// DATOS DE DOCENTES (Ejemplo de 2, debes completar los 7)
+// Datos de docentes
 const profData = {
-    galaviz: { name: "Dr. José Víctor Galaviz Rodríguez", cv: "Doctor en Planeación Estratégica. Líder de Cuerpo Académico.", projects: ["Patente: Máquina de selección de semillas."] },
-    sonia: { name: "Dra. Sonia López Rodríguez", cv: "Doctora en Tecnología. Experta en Realidad Virtual.", projects: ["RA para preservación de lenguas indígenas."] }
-    // Agregar javier, corona, roman, jonny y ricardo siguiendo el mismo formato
+    galaviz: { name: "Dr. José Víctor Galaviz Rodríguez", cv: "Líder de Investigación." },
+    sonia: { name: "Dra. Sonia López Rodríguez", cv: "Doctora en Tecnología." },
+    javier: { name: "Dr. Francisco Javier Espinosa Moreno", cv: "Especialista en Energía." },
+    corona: { name: "Dr. José Luis Hernández Corona", cv: "Experto en Automatización." },
+    roman: { name: "Dr. Román Daniel Romero Mitre", cv: "Especialista en CNC." },
+    jonny: { name: "M.I. Jonny Carmona Reyes", cv: "Experto en Automatización Educativa." },
+    ricardo: { name: "M.I. Ricardo Ramos Aguilar", cv: "Especialista en Machine Learning." }
 };
 
 function openProfModal(id) {
     const data = profData[id];
-    document.getElementById("modalBody").innerHTML = `<h2>${data.name}</h2><p>${data.cv}</p><h3>Proyectos:</h3><ul>${data.projects.map(p => `<li>${p}</li>`).join('')}</ul>`;
+    document.getElementById("modalBody").innerHTML = `<h2>${data.name}</h2><p>${data.cv}</p>`;
     document.getElementById("infoModal").style.display = "block";
 }
 
