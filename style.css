@@ -1,254 +1,53 @@
 /* COLORES INSTITUCIONALES Y RESET */
 :root {
-    --primary: #800000; /* Granate institucional */
-    --secondary: #006400; /* Verde institucional */
-    --accent: #f4f4f4;
-    --dark: #333;
+    --primary: #800000;
+    --secondary: #006400;
+    --dark: #222;
     --white: #ffffff;
-    --transition: all 0.3s ease;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
-body {
-    line-height: 1.6;
-    color: var(--dark);
-    scroll-behavior: smooth;
-}
+body { scroll-behavior: smooth; color: var(--dark); line-height: 1.6; }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
+.container { width: 90%; max-width: 1100px; margin: auto; }
 
-/* NAVBAR */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background: var(--primary);
-    color: white;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
+.navbar { position: fixed; top: 0; width: 100%; background: var(--primary); padding: 15px 5%; display: flex; justify-content: space-between; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+.logo { color: white; font-weight: bold; font-size: 1.2rem; }
+.nav-links { display: flex; list-style: none; }
+.nav-links a { color: white; text-decoration: none; padding: 0 15px; font-size: 0.9rem; }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-}
+.hero { height: 80vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/campus.jpg') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
 
-.nav-links li a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    font-weight: 500;
-    transition: var(--transition);
-}
+.section-padding { padding: 80px 0; }
+.section-title { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 10px; }
+.section-subtitle { text-align: center; color: #666; margin-bottom: 40px; }
+.bg-light { background-color: #f9f9f9; }
 
-.nav-links li a:hover {
-    color: #ffd700; /* Oro */
-}
+.btn { padding: 10px 25px; background: var(--secondary); color: white; text-decoration: none; border-radius: 5px; margin: 10px; display: inline-block; }
+.btn-alt { background: transparent; border: 2px solid white; }
 
-/* HERO SECTION */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/campus.jpg') center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    padding-top: 60px;
-}
+.lines-grid, .professors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.line-card, .prof-card { background: white; padding: 30px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; }
+.line-card:hover, .prof-card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--primary); }
+.line-card i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 15px; }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
+.prof-card img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary); margin-bottom: 15px; }
+.role { font-size: 0.8rem; color: #777; font-weight: bold; }
 
-.btn {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background: var(--secondary);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin: 0.5rem;
-    transition: var(--transition);
-}
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.project-item { background: #eee; padding: 20px; border-radius: 5px; }
 
-.btn-alt {
-    background: transparent;
-    border: 2px solid white;
-}
+/* MODALES */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); overflow-y: auto; }
+.modal-content { background: white; margin: 5% auto; padding: 40px; border-radius: 10px; width: 85%; max-width: 800px; position: relative; animation: fadeIn 0.4s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.close { position: absolute; right: 20px; top: 10px; font-size: 30px; cursor: pointer; }
+.curriculum-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+.curriculum-table td, .curriculum-table th { border: 1px solid #ddd; padding: 10px; font-size: 0.85rem; }
+.curriculum-table th { background: var(--primary); color: white; }
 
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
+footer { background: var(--dark); color: white; text-align: center; padding: 30px 0; margin-top: 50px; }
 
-/* CARDS E INVESTIGACIÓN */
-.lines-grid, .professors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.line-card, .prof-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: var(--transition);
-    cursor: pointer;
-}
-
-.line-card:hover, .prof-card:hover {
-    transform: scale(1.03);
-}
-
-.line-card i {
-    font-size: 3rem;
-    color: var(--secondary);
-    margin-bottom: 1rem;
-}
-
-.prof-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-    border: 3px solid var(--primary);
-}
-
-/* FILTRO DE PROYECTOS */
-.filter-buttons {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.filter-btn {
-    padding: 0.5rem 1.5rem;
-    margin: 0.2rem;
-    border: none;
-    background: #ddd;
-    cursor: pointer;
-    border-radius: 20px;
-}
-
-.filter-btn.active {
-    background: var(--primary);
-    color: white;
-}
-
-.projects-grid .project-item {
-    background: var(--accent);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    border-left: 5px solid var(--secondary);
-}
-
-/* RESPONSIVO */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Aquí implementarías el menú hamburguesa con JS */
-    }
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .lines-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajustado para 5 tarjetas */
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.professors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.mail-link {
-    font-size: 0.85rem;
-    color: var(--primary);
-    text-decoration: none;
-    word-break: break-all; /* Evita que correos largos rompan la tarjeta */
-}
-    /* ESTILOS DEL MODAL */
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 2000; 
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    overflow-y: auto;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 30px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 900px;
-    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-    position: relative;
-    animation: slideIn 0.4s ease;
-}
-
-@keyframes slideIn {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.close {
-    position: absolute;
-    right: 20px; top: 10px;
-    color: #aaa;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover { color: var(--primary); }
-
-/* ESTILOS DE LA TABLA DEL PLAN DE ESTUDIOS */
-.curriculum-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-size: 0.9rem;
-}
-
-.curriculum-table th {
-    background-color: var(--primary);
-    color: white;
-    padding: 10px;
-    text-align: left;
-}
-
-.curriculum-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-.curriculum-table tr:nth-child(even) { background-color: #f9f9f9; }
-
-.modal h2 { color: var(--primary); margin-bottom: 15px; }
-.modal h3 { color: var(--secondary); margin-top: 20px; }
-}
+@media (max-width: 768px) { .nav-links { display: none; } .hero h1 { font-size: 1.8rem; } }
