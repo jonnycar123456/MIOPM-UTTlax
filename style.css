@@ -1,54 +1,119 @@
-:root {
-    --primary: #800000;
-    --secondary: #006400;
-    --white: #ffffff;
-    --dark: #111;
+// CONTROL DEL SLIDER
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+function nextSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+}
+setInterval(nextSlide, 5000);
+
+// DATOS DE LÍNEAS (LGAC) - Basado en PE 2024
+const lineData = {
+    gestion: {
+        title: "Gestión de Proyectos",
+        desc: "Optimización de recursos y rentabilidad industrial mediante estándares de calidad.",
+        curriculum: ["Administración para Ingenieros", "Análisis Financiero", "Planeación Estratégica", "Análisis de Operaciones"]
+    },
+    iiot: {
+        title: "Internet Industrial de las Cosas (IIoT)",
+        desc: "Implementación de sistemas ciberfísicos y Big Data para la industria 4.0.",
+        curriculum: ["Industria 4.0", "Big Data", "Sistemas Ciberfísicos", "Control Inteligente"]
+    },
+    sostenibilidad: {
+        title: "Procesos Industriales Sostenibles",
+        desc: "Desarrollo de sistemas productivos con mínimo impacto ambiental.",
+        curriculum: ["Economía Circular", "Energías Renovables", "Gestión de Capital Humano", "Ingeniería Sostenible"]
+    },
+    fabricacion: {
+        title: "Procesos de Fabricación",
+        desc: "Diseño y mejora de métodos de manufactura y metrología avanzada.",
+        curriculum: ["Metrología Avanzada", "Materiales Comerciales", "Manufactura Esbelta", "Optimización de Operaciones"]
+    },
+    simulacion: {
+        title: "Simulación Productiva",
+        desc: "Modelado virtual para la toma de decisiones estratégicas en planta.",
+        curriculum: ["Modelado Discreto", "Diseño Mecánico CAD", "Simulación Estadística", "Algoritmos Lineales"]
+    }
+};
+
+// DATOS DEL NÚCLEO ACADÉMICO (Información Extraída de CVs)
+const profData = {
+    galaviz: {
+        name: "Dr. José Víctor Galaviz Rodríguez",
+        cv: "Doctor en Planeación Estratégica. Líder del Cuerpo Académico Ingeniería en Procesos [14, 15].",
+        lines: "Optimización Industrial y Sostenibilidad.",
+        projects: ["Patente: Máquina de selección de semillas.", "Investigación en consumo eco-friendly."]
+    },
+    sonia: {
+        name: "Dra. Sonia López Rodríguez",
+        cv: "Doctora en Tecnología e Innovación. Experta en Ciencias Inmersivas y transferencia tecnológica [10].",
+        lines: "Internet Industrial de las Cosas, RA y RV.",
+        projects: ["App para preservación de lengua Otomí.", "Automatización en SMP Automotive."]
+    },
+    javier: {
+        name: "Dr. Francisco Javier Espinosa Moreno",
+        cv: "Dr. en Ciencias en Energía Renovable. Miembro del SNII especializado en sustentabilidad [16, 17].",
+        lines: "Sistemas Energéticos Sustentables.",
+        projects: ["Producción de Hidrógeno Verde.", "Modelado de baterías de Litio."]
+    },
+    corona: {
+        name: "Dr. José Luis Hernández Corona",
+        cv: "Dr. en Ciencias en Sistemas Computacionales. Especialista en Instrumentación inteligente [18, 19].",
+        lines: "Automatización, Control y Mecatrónica.",
+        projects: ["Identificación de Robot CRS A465.", "Sistemas de laboratorios remotos."]
+    },
+    roman: {
+        name: "Dr. Román Daniel Romero Mitre",
+        cv: "Dr. en Manufactura Avanzada. Experto en CAD/CAM/CNC y diseño industrial [20, 21].",
+        lines: "Optimización de procesos de maquinado.",
+        projects: ["Análisis de vida útil de herramientas.", "Optimización de corte por láser."]
+    },
+    jonny: {
+        name: "M.I. Jonny Carmona Reyes",
+        cv: "Mtro. en Automatización y Control. Experto en scripting para automatización educativa [22, 23].",
+        lines: "Diseño Instruccional 4.0 y Entornos Virtuales.",
+        projects: ["Modelos contra la deserción escolar.", "Plataformas de tutoría inteligente."]
+    },
+    ricardo: {
+        name: "M. en C. Ricardo Ramos Aguilar",
+        cv: "Mtro. en Sistemas Computacionales. Candidato al SNI. Experto en Machine Learning [24, 25].",
+        lines: "Inteligencia Artificial y Señales Digitales.",
+        projects: ["Análisis de bioseñales para salud.", "Few-shot learning para lenguas indígenas."]
+    }
+};
+
+const modal = document.getElementById("infoModal");
+const body = document.getElementById("modalBody");
+
+function openModal(id) {
+    const data = lineData[id];
+    body.innerHTML = `
+        <h2 style="color:var(--primary)">${data.title}</h2>
+        <p><strong>Enfoque:</strong> ${data.desc}</p>
+        <hr>
+        <h3>Mapa Curricular Sugerido</h3>
+        <table class="curriculum-table">
+            <tr><th>Eje</th><th>Asignatura Clave</th></tr>
+            ${data.curriculum.map(m => `<tr><td>Formación</td><td>${m}</td></tr>`).join('')}
+            <tr><td>Transversal</td><td>Ética y Matemáticas Avanzadas</td></tr>
+        </table>
+    `;
+    modal.style.display = "block";
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-body { scroll-behavior: smooth; color: var(--dark); line-height: 1.6; }
-.container { width: 90%; max-width: 1200px; margin: auto; }
+function openProfModal(id) {
+    const data = profData[id];
+    body.innerHTML = `
+        <h2 style="color:var(--primary)">${data.name}</h2>
+        <p><strong>Perfil:</strong> ${data.cv}</p>
+        <p><strong>Especialidad:</strong> ${data.lines}</p>
+        <hr>
+        <h3>Proyectos Recientes</h3>
+        <ul>${data.projects.map(p => `<li style="margin-bottom:8px">${p}</li>`).join('')}</ul>
+    `;
+    modal.style.display = "block";
+}
 
-/* NAVBAR */
-.navbar { position: fixed; top: 0; width: 100%; background: var(--primary); padding: 15px 5%; display: flex; justify-content: space-between; z-index: 1000; }
-.logo { color: white; font-weight: bold; }
-.nav-links { display: flex; list-style: none; }
-.nav-links a { color: white; text-decoration: none; padding: 0 15px; font-size: 0.9rem; }
-
-/* HERO SLIDER */
-.hero { height: 85vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; }
-.slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-.slide { position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out; }
-.slide.active { opacity: 1; }
-.hero h1 { font-size: 2.8rem; margin-bottom: 20px; text-shadow: 2px 2px 5px #000; }
-
-/* BOTONES */
-.btn { padding: 12px 25px; background: var(--secondary); color: white; text-decoration: none; border-radius: 5px; margin: 10px; display: inline-block; font-weight: bold; }
-.btn-alt { background: transparent; border: 2px solid white; }
-
-/* SECCIONES Y GRIDS */
-.section-padding { padding: 80px 0; }
-.section-title { text-align: center; font-size: 2.2rem; color: var(--primary); margin-bottom: 40px; }
-.bg-light { background-color: #f8f8f8; }
-
-.lines-grid, .professors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-.line-card, .prof-card { background: white; padding: 30px; text-align: center; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; }
-.line-card:hover, .prof-card:hover { transform: translateY(-10px); border-bottom: 5px solid var(--primary); }
-.line-card i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 15px; }
-
-.prof-card img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary); margin-bottom: 15px; }
-.role { font-size: 0.85rem; color: #666; font-weight: bold; }
-
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.project-item { background: white; padding: 25px; border-radius: 8px; border-left: 5px solid var(--secondary); box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
-
-/* MODALES */
-.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); overflow-y: auto; }
-.modal-content { background: white; margin: 5% auto; padding: 40px; border-radius: 12px; width: 90%; max-width: 800px; position: relative; animation: fadeIn 0.4s; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.close { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; }
-.curriculum-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-.curriculum-table td, .curriculum-table th { border: 1px solid #ddd; padding: 12px; font-size: 0.9rem; }
-.curriculum-table th { background: var(--primary); color: white; }
-
-footer { background: #222; color: white; text-align: center; padding: 40px 0; }
+function closeModal() { modal.style.display = "none"; }
+window.onclick = (e) => { if(e.target == modal) closeModal(); }
