@@ -1,63 +1,119 @@
-:root {
-    --primary: #800000; /* Granate UTT */
-    --secondary: #006400; /* Verde institucional */
-    --dark: #1a1a1a;
-    --light: #f4f4f4;
-    --white: #ffffff;
+// CONTROL DEL SLIDER
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function nextSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+}
+setInterval(nextSlide, 5000);
+
+// DATOS DE LÍNEAS DE INVESTIGACIÓN (LGAC)
+const lineData = {
+    gestion: {
+        title: "Gestión de Proyectos",
+        desc: "Optimización de recursos y rentabilidad industrial mediante estándares de calidad y mejora continua [7].",
+        curriculum: ["Planeación Estratégica y Análisis de Operaciones", "Administración para Ingenieros", "Marco Legal para el Desarrollo de Proyectos", "Técnicas para la Solución de Problemas"]
+    },
+    iiot: {
+        title: "Internet Industrial de las Cosas (IIoT)",
+        desc: "Implementación de sistemas ciberfísicos, Big Data y conectividad avanzada para la Industria 4.0 [8].",
+        curriculum: ["Industria 4.0 y Transformación Digital", "Big Data", "Sistemas Ciberfísicos y IIoT", "Diseño de Sistemas de Control Inteligente"]
+    },
+    sostenibilidad: {
+        title: "Procesos Industriales Sostenibles",
+        desc: "Optimización de flujos productivos bajo criterios de economía circular y energías renovables [9].",
+        curriculum: ["Economía Circular", "Energías Renovables", "Desarrollo de Productos Innovadores", "Gestión de Capital Humano"]
+    },
+    fabricacion: {
+        title: "Procesos de Fabricación",
+        desc: "Diseño y perfeccionamiento de métodos de manufactura y transformación de materiales [10].",
+        curriculum: ["Propiedades de los Materiales Comerciales", "Metrología Avanzada", "Procesos de Fabricación I y II", "Optimización de Operaciones en Talleres"]
+    },
+    simulacion: {
+        title: "Simulación Productiva",
+        desc: "Modelado virtual y simulación estadística para la optimización de líneas de producción [11].",
+        curriculum: ["Modelos y Simulación Estadística", "Simulación de Sistemas de Control", "Sistemas de Modelado Discreto", "Diseño Mecánico Avanzado"]
+    }
+};
+
+// DATOS DE PROFESORES (Extraídos de sus CVs)
+const profData = {
+    galaviz: {
+        name: "Dr. José Víctor Galaviz Rodríguez",
+        cv: "Doctor en Planeación Estratégica y Dirección de Tecnología. Líder del Cuerpo Académico Ingeniería en Procesos [5].",
+        lines: "Gestión de Proyectos, Innovación y Sostenibilidad.",
+        projects: ["Patente: Máquina de selección de semillas [19].", "Sostenibilidad en la cadena de calabaza de castilla [20]."]
+    },
+    sonia: {
+        name: "Dra. Sonia López Rodríguez",
+        cv: "Doctora en Tecnología e Innovación. Experta en Ciencias Inmersivas (RA/RV) y transferencia tecnológica [6].",
+        lines: "Internet Industrial de las Cosas, Ciencias Inmersivas.",
+        projects: ["App de RA para preservación de plantas medicinales [21].", "Transferencia tecnológica SMP Automotive [12]."]
+    },
+    javier: {
+        name: "Dr. Francisco Javier Espinosa Moreno",
+        cv: "Doctor en Ciencias en Energía Renovable. Investigador nivel SNII especializado en hidrógeno verde [2].",
+        lines: "Sistemas Energéticos Sustentables.",
+        projects: ["Producción de hidrógeno a partir de glicerol [22].", "Sistemas de electrometanogénesis."]
+    },
+    corona: {
+        name: "Dr. José Luis Hernández Corona",
+        cv: "Doctor en Ciencias en Sistemas Computacionales. Experto en instrumentación inteligente [23].",
+        lines: "Automatización, Control y Mecatrónica.",
+        projects: ["Identificación de Robot Manipulador CRS A465 [24].", "Diseño de molinos residuales sostenibles."]
+    },
+    roman: {
+        name: "Dr. Román Daniel Romero Mitre",
+        cv: "Doctor en Manufactura Avanzada. Especialista en optimización de procesos de maquinado CNC [3].",
+        lines: "Procesos de Fabricación, Diseño Industrial.",
+        projects: ["Análisis de vida útil de herramientas de corte [25].", "Optimización de corte de metales por láser."]
+    },
+    jonny: {
+        name: "M.I. Jonny Carmona Reyes",
+        cv: "Maestro en Automatización y Doctorando en Educación. Especialista en scripting para automatización educativa [1].",
+        lines: "Automatización Educativa, Entornos Virtuales.",
+        projects: ["Modelos predictivos contra la deserción escolar [26].", "Arquitecturas de laboratorios remotos [27]."]
+    },
+    ricardo: {
+        name: "M. en C. Ricardo Ramos Aguilar",
+        cv: "Maestro en Sistemas Computacionales y Candidato al SNI. Experto en Machine Learning y procesamiento de señales [4].",
+        lines: "Inteligencia Artificial, Análisis de Bioseñales.",
+        projects: ["Reconocimiento de emociones en dibujos infantiles [28].", "Few-shot learning para salud indígena."]
+    }
+};
+
+const modal = document.getElementById("infoModal");
+const body = document.getElementById("modalBody");
+
+function openModal(id) {
+    const data = lineData[id];
+    body.innerHTML = `
+        <h2 style="color:var(--primary)">${data.title}</h2>
+        <p><strong>Enfoque:</strong> ${data.desc}</p>
+        <h3>Mapa Curricular Sugerido</h3>
+        <table class="curriculum-table">
+            <tr><th>Eje Formativo</th><th>Asignaturas Clave</th></tr>
+            ${data.curriculum.map(m => `<tr><td>Especialización</td><td>${m}</td></tr>`).join('')}
+            <tr><td>Transversal</td><td>Ética y Matemáticas Avanzadas</td></tr>
+        </table>
+    `;
+    modal.style.display = "block";
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-body { scroll-behavior: smooth; color: var(--dark); line-height: 1.6; background: var(--white); }
-.container { width: 90%; max-width: 1200px; margin: auto; }
+function openProfModal(id) {
+    const data = profData[id];
+    body.innerHTML = `
+        <h2 style="color:var(--primary)">${data.name}</h2>
+        <p><strong>Resumen Curricular:</strong> ${data.cv}</p>
+        <p><strong>Especialidad:</strong> ${data.lines}</p>
+        <hr style="margin:20px 0; border:0; border-top:1px solid #eee;">
+        <h3>Proyectos Recientes</h3>
+        <ul style="padding-left:20px;">${data.projects.map(p => `<li style="margin-bottom:10px;">${p}</li>`).join('')}</ul>
+    `;
+    modal.style.display = "block";
+}
 
-/* NAVBAR */
-.navbar { position: fixed; top: 0; width: 100%; background: var(--primary); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-.logo { color: white; font-weight: bold; font-size: 1.2rem; }
-.nav-links { display: flex; list-style: none; }
-.nav-links a { color: white; text-decoration: none; padding: 0 15px; font-size: 0.9rem; font-weight: 500; }
-.nav-links a:hover { color: #ffcc00; }
-
-/* HERO SLIDER */
-.hero { height: 80vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; }
-.slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-.slide { position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out; }
-.slide.active { opacity: 1; }
-.hero-content { z-index: 1; max-width: 800px; padding: 20px; }
-.hero h1 { font-size: 2.8rem; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
-.hero p { font-size: 1.3rem; margin-bottom: 30px; }
-
-/* BOTONES */
-.btn { padding: 12px 30px; background: var(--secondary); color: white; text-decoration: none; border-radius: 5px; margin: 10px; display: inline-block; font-weight: bold; transition: 0.3s; }
-.btn-alt { background: transparent; border: 2px solid white; }
-.btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-
-/* SECCIONES */
-.section-padding { padding: 80px 0; }
-.section-title { text-align: center; font-size: 2.2rem; color: var(--primary); margin-bottom: 40px; position: relative; }
-.section-title::after { content: ''; width: 60px; height: 4px; background: var(--secondary); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
-.bg-light { background-color: var(--light); }
-
-/* GRIDS */
-.lines-grid, .professors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px; }
-.line-card, .prof-card { background: white; padding: 35px 20px; text-align: center; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); cursor: pointer; transition: 0.4s; border: 1px solid #eee; }
-.line-card:hover, .prof-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(128,0,0,0.15); border-color: var(--primary); }
-.line-card i { font-size: 3rem; color: var(--secondary); margin-bottom: 15px; }
-
-.prof-card img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary); margin-bottom: 20px; }
-.role { font-size: 0.85rem; color: #666; font-weight: bold; }
-
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.project-item { background: #fff; padding: 25px; border-radius: 8px; border-left: 6px solid var(--secondary); box-shadow: 0 5px 10px rgba(0,0,0,0.05); }
-
-/* MODALES */
-.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); overflow-y: auto; padding: 20px; }
-.modal-content { background: white; margin: 2% auto; padding: 40px; border-radius: 12px; width: 95%; max-width: 850px; position: relative; animation: slideIn 0.5s; }
-@keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-.close { position: absolute; right: 25px; top: 15px; font-size: 40px; cursor: pointer; color: #888; }
-.curriculum-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-.curriculum-table td, .curriculum-table th { border: 1px solid #ddd; padding: 12px; font-size: 0.9rem; }
-.curriculum-table th { background: var(--primary); color: white; }
-
-footer { background: var(--dark); color: white; text-align: center; padding: 40px 0; }
-
-@media (max-width: 768px) { .nav-links { display: none; } .hero h1 { font-size: 2rem; } }
+function closeModal() { modal.style.display = "none"; }
+window.onclick = (e) => { if(e.target == modal) closeModal(); }
