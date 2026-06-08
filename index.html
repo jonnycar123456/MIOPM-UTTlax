@@ -9,18 +9,19 @@
 </head>
 <body>
 
+    <!-- MENÚ DE NAVEGACIÓN -->
     <nav class="navbar">
         <div class="logo">MIOPM - UTT</div>
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#lineas">Líneas</a></li>
-            <li><a href="#profesores">Núcleo Académico</a></li>
-            <li><a href="#proyectos">Resultados</a></li>
+            <li><a href="#profesores">Investigadores</a></li>
+            <li><a href="#resultados">Resultados</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
-    <!-- SLIDER DE ACTIVIDADES -->
+    <!-- SLIDER / HERO -->
     <header id="inicio" class="hero">
         <div class="slider">
             <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/campus.jpg');"></div>
@@ -30,37 +31,37 @@
         </div>
         <div class="hero-content">
             <h1>Maestría en Ingeniería para la Optimización de Procesos de Manufactura</h1>
-            <p>Liderazgo tecnológico en Industria 4.0, Sostenibilidad y Manufactura Avanzada.</p>
+            <p>Innovación tecnológica y desarrollo industrial sostenible con enfoque en Industria 4.0.</p>
             <div class="hero-buttons">
                 <a href="#lineas" class="btn">Explorar LGAC</a>
-                <a href="#profesores" class="btn btn-alt">Conocer Investigadores</a>
+                <a href="#profesores" class="btn btn-alt">Nuestro Núcleo</a>
             </div>
         </div>
     </header>
 
-    <!-- SECCIÓN LGAC -->
+    <!-- LÍNEAS DE INVESTIGACIÓN (LGAC) -->
     <section id="lineas" class="section-padding">
         <div class="container">
             <h2 class="section-title">Líneas de Generación y Aplicación del Conocimiento</h2>
-            <p class="section-subtitle">Haz clic en cada línea para ver sus objetivos y mapa curricular oficial.</p>
-            <div class="lines-grid">
-                <div class="line-card" onclick="openModal('gestion')">
+            <p class="section-subtitle">Selecciona una línea para conocer su mapa curricular [3-7].</p>
+            <div class="grid lines-grid">
+                <div class="card" onclick="openModal('gestion')">
                     <i class="fas fa-project-diagram"></i>
                     <h3>Gestión de Proyectos</h3>
                 </div>
-                <div class="line-card" onclick="openModal('iiot')">
+                <div class="card" onclick="openModal('iiot')">
                     <i class="fas fa-robot"></i>
                     <h3>Internet Industrial de las Cosas</h3>
                 </div>
-                <div class="line-card" onclick="openModal('sostenibilidad')">
+                <div class="card" onclick="openModal('sostenibilidad')">
                     <i class="fas fa-leaf"></i>
                     <h3>Procesos Sostenibles</h3>
                 </div>
-                <div class="line-card" onclick="openModal('fabricacion')">
+                <div class="card" onclick="openModal('fabricacion')">
                     <i class="fas fa-industry"></i>
                     <h3>Procesos de Fabricación</h3>
                 </div>
-                <div class="line-card" onclick="openModal('simulacion')">
+                <div class="card" onclick="openModal('simulacion')">
                     <i class="fas fa-desktop"></i>
                     <h3>Simulación Productiva</h3>
                 </div>
@@ -72,62 +73,60 @@
     <section id="profesores" class="section-padding bg-light">
         <div class="container">
             <h2 class="section-title">Núcleo Académico Básico</h2>
-            <div class="professors-grid">
-                <div class="prof-card" onclick="openProfModal('galaviz')">
+            <p class="section-subtitle">Investigadores dedicados a la ciencia y transferencia tecnológica.</p>
+            <div class="grid prof-grid">
+                <!-- Los 7 docentes extraídos de las fuentes -->
+                <div class="card prof-card" onclick="openProfModal('galaviz')">
                     <img src="img/galaviz.jpg" alt="Dr. Galaviz">
                     <h4>Dr. José Víctor Galaviz Rodríguez</h4>
-                    <p class="role">Líder de Cuerpo Académico</p>
+                    <p class="role">Líder de Investigación [8]</p>
                 </div>
-                <div class="prof-card" onclick="openProfModal('sonia')">
+                <div class="card prof-card" onclick="openProfModal('sonia')">
                     <img src="img/sonia.jpg" alt="Dra. Sonia">
                     <h4>Dra. Sonia López Rodríguez</h4>
-                    <p class="role">Especialista en Ciencias Inmersivas</p>
+                    <p class="role">Experta en Ciencias Inmersivas [9]</p>
                 </div>
-                <div class="prof-card" onclick="openProfModal('javier')">
+                <div class="card prof-card" onclick="openProfModal('javier')">
                     <img src="img/javier.jpg" alt="Dr. Javier">
                     <h4>Dr. Francisco Javier Espinosa Moreno</h4>
-                    <p class="role">Investigador Sistemas Energéticos</p>
+                    <p class="role">Investigador Sistemas Energéticos [10]</p>
                 </div>
-                <div class="prof-card" onclick="openProfModal('corona')">
+                <div class="card prof-card" onclick="openProfModal('corona')">
                     <img src="img/corona.jpg" alt="Dr. Corona">
                     <h4>Dr. José Luis Hernández Corona</h4>
-                    <p class="role">Experto en Instrumentación</p>
+                    <p class="role">Especialista en Automatización [11]</p>
                 </div>
-                <div class="prof-card" onclick="openProfModal('roman')">
+                <div class="card prof-card" onclick="openProfModal('roman')">
                     <img src="img/roman.jpg" alt="Dr. Roman">
                     <h4>Dr. Román Daniel Romero Mitre</h4>
-                    <p class="role">Manufactura Avanzada y CNC</p>
+                    <p class="role">Manufactura Avanzada y CNC [12]</p>
                 </div>
-                <div class="prof-card" onclick="openProfModal('jonny')">
+                <div class="card prof-card" onclick="openProfModal('jonny')">
                     <img src="img/jonny.jpg" alt="M.I. Jonny">
                     <h4>M.I. Jonny Carmona Reyes</h4>
-                    <p class="role">Automatización Educativa</p>
+                    <p class="role">Automatización Educativa [13]</p>
                 </div>
-                <div class="prof-card" onclick="openProfModal('ricardo')">
+                <div class="card prof-card" onclick="openProfModal('ricardo')">
                     <img src="img/ricardo.jpg" alt="M. en C. Ricardo">
                     <h4>M. en C. Ricardo Ramos Aguilar</h4>
-                    <p class="role">Machine Learning Aplicado</p>
+                    <p class="role">Experto en Machine Learning [14]</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- RESULTADOS -->
-    <section id="proyectos" class="section-padding">
+    <section id="resultados" class="section-padding">
         <div class="container">
             <h2 class="section-title">Impacto y Resultados</h2>
-            <div class="projects-grid">
-                <div class="project-item">
-                    <h4>Propiedad Intelectual</h4>
-                    <p>Contamos con patentes ante el IMPI, como el Modelo de Deshidratador Industrial y Soportes Ergonómicos [1, 2].</p>
-                </div>
-                <div class="project-item">
+            <div class="grid results-grid">
+                <div class="result-item">
                     <h4>Transferencia Tecnológica</h4>
-                    <p>Sistemas automatizados de gestión implementados con éxito en la empresa SMP Automotive [3, 4].</p>
+                    <p>Sistemas implementados en SMP Automotive y proyectos de preservación cultural mediante entornos virtuales [15, 16].</p>
                 </div>
-                <div class="project-item">
-                    <h4>Preservación Cultural</h4>
-                    <p>Uso de Realidad Virtual para el rescate de las lenguas Otomí y Náhuatl en comunidades indígenas [5, 6].</p>
+                <div class="result-item">
+                    <h4>Propiedad Intelectual</h4>
+                    <p>Patentes IMPI: Máquina de selección de semillas, deshidratadores solares y soportes ergonómicos [17-19].</p>
                 </div>
             </div>
         </div>
@@ -135,9 +134,9 @@
 
     <!-- CONTACTO -->
     <section id="contacto" class="section-padding bg-light">
-        <div class="container contact-flex">
+        <div class="container contact-container">
             <div class="contact-info">
-                <h2>Información de Contacto</h2>
+                <h2>Contacto Institucional</h2>
                 <p><i class="fas fa-envelope"></i> posgrado@uttlaxcala.edu.mx</p>
                 <p><i class="fas fa-map-marker-alt"></i> Huamantla, Tlaxcala.</p>
                 <p><i class="fas fa-phone"></i> 247 472 5300</p>
@@ -145,13 +144,13 @@
             <form class="contact-form">
                 <input type="text" placeholder="Tu Nombre" required>
                 <input type="email" placeholder="Tu Correo" required>
-                <textarea placeholder="Consulta sobre admisiones..." rows="4"></textarea>
-                <button type="submit" class="btn">Enviar</button>
+                <textarea placeholder="Mensaje..." rows="4"></textarea>
+                <button type="submit" class="btn">Enviar Consulta</button>
             </form>
         </div>
     </section>
 
-    <!-- MODAL ÚNICO -->
+    <!-- MODAL DINÁMICO -->
     <div id="infoModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
