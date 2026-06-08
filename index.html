@@ -19,20 +19,21 @@
         </ul>
     </nav>
 
+    <!-- HERO CON SLIDER, FLECHAS Y ZOOM -->
     <header id="inicio" class="hero">
-        <div class="slider" onclick="zoomImage()">
+        <div class="slider" onclick="zoomImage()" title="Click para ampliar imagen">
             <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/campus.jpg');"></div>
             <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/actividad1.jpg');"></div>
             <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/actividad2.jpg');"></div>
             <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/actividad3.jpg');"></div>
         </div>
         
-        <button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
-        <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
+        <button class="prev-btn" onclick="manualChange(-1)">&#10094;</button>
+        <button class="next-btn" onclick="manualChange(1)">&#10095;</button>
 
         <div class="hero-content">
             <h1>Maestría en Ingeniería para la Optimización de Procesos de Manufactura</h1>
-            <p>Innovación Tecnológica y Excelencia en Industria 4.0.</p>
+            <p>Excelencia Técnica y Liderazgo en Industria 4.0.</p>
             <div class="hero-buttons">
                 <a href="#lineas" class="btn">Planes de Estudio</a>
                 <a href="#profesores" class="btn btn-alt">Nuestro Núcleo</a>
@@ -40,6 +41,7 @@
         </div>
     </header>
 
+    <!-- LÍNEAS DE INVESTIGACIÓN -->
     <section id="lineas" class="section-padding">
         <div class="container">
             <h2 class="section-title">Líneas de Investigación (LGAC)</h2>
@@ -53,21 +55,23 @@
         </div>
     </section>
 
+    <!-- NÚCLEO ACADÉMICO -->
     <section id="profesores" class="section-padding bg-light">
         <div class="container">
             <h2 class="section-title">Núcleo Académico Básico</h2>
             <div class="grid">
-                <div class="card prof-card" onclick="openProfModal('galaviz')"><img src="img/galaviz.jpg"><h4>Dr. José Galaviz</h4></div>
-                <div class="card prof-card" onclick="openProfModal('sonia')"><img src="img/sonia.jpg"><h4>Dra. Sonia López</h4></div>
-                <div class="card prof-card" onclick="openProfModal('javier')"><img src="img/javier.jpg"><h4>Dr. Javier Moreno</h4></div>
-                <div class="card prof-card" onclick="openProfModal('corona')"><img src="img/corona.jpg"><h4>Dr. Luis Corona</h4></div>
-                <div class="card prof-card" onclick="openProfModal('roman')"><img src="img/roman.jpg"><h4>Dr. Román Romero</h4></div>
-                <div class="card prof-card" onclick="openProfModal('jonny')"><img src="img/jonny.jpg"><h4>M.I. Jonny Carmona</h4></div>
-                <div class="card prof-card" onclick="openProfModal('ricardo')"><img src="img/ricardo.jpg"><h4>M.I. Ricardo Ramos</h4></div>
+                <div class="card prof-card" onclick="openProfModal('galaviz')"><img src="img/galaviz.jpg"><h4>Dr. José Galaviz</h4><p class="role">Líder de Investigación</p></div>
+                <div class="card prof-card" onclick="openProfModal('sonia')"><img src="img/sonia.jpg"><h4>Dra. Sonia López</h4><p class="role">Experta en RA/RV</p></div>
+                <div class="card prof-card" onclick="openProfModal('javier')"><img src="img/javier.jpg"><h4>Dr. Javier Moreno</h4><p class="role">Investigador SNII</p></div>
+                <div class="card prof-card" onclick="openProfModal('corona')"><img src="img/corona.jpg"><h4>Dr. Luis Corona</h4><p class="role">Especialista en Automatización</p></div>
+                <div class="card prof-card" onclick="openProfModal('roman')"><img src="img/roman.jpg"><h4>Dr. Román Romero</h4><p class="role">Experto en Manufactura</p></div>
+                <div class="card prof-card" onclick="openProfModal('jonny')"><img src="img/jonny.jpg"><h4>M.I. Jonny Carmona</h4><p class="role">Scripting Educativo</p></div>
+                <div class="card prof-card" onclick="openProfModal('ricardo')"><img src="img/ricardo.jpg"><h4>M.I. Ricardo Ramos</h4><p class="role">Machine Learning</p></div>
             </div>
         </div>
     </section>
 
+    <!-- MODAL ÚNICO -->
     <div id="infoModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
