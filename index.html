@@ -9,6 +9,7 @@
 </head>
 <body>
 
+    <!-- NAVEGACIÓN -->
     <nav class="navbar">
         <div class="logo">MIOPM - UTT</div>
         <ul class="nav-links">
@@ -16,132 +17,120 @@
             <li><a href="#lineas">Líneas</a></li>
             <li><a href="#profesores">Núcleo Académico</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#publicaciones">Publicaciones</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
+    <!-- INICIO -->
     <header id="inicio" class="hero">
         <div class="hero-content">
             <h1>Maestría en Ingeniería para la Optimización de Procesos de Manufactura</h1>
-            <p>Formación de excelencia técnica para la industria 4.0 y el desarrollo regional.</p>
+            <p>Excelencia académica y tecnológica para la industria regional.</p>
             <div class="hero-buttons">
-                <a href="#lineas" class="btn">Líneas de Investigación</a>
+                <a href="#lineas" class="btn">Planes de Estudio</a>
                 <a href="#profesores" class="btn btn-alt">Nuestro Núcleo</a>
             </div>
         </div>
     </header>
 
-    <!-- SECCIÓN NÚCLEO ACADÉMICO (7 DOCENTES COMPLETOS) -->
+    <!-- LÍNEAS DE INVESTIGACIÓN -->
+    <section id="lineas" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Líneas de Generación y Aplicación del Conocimiento</h2>
+            <p class="section-subtitle">Haz clic en una línea para ver su descripción y mapa curricular.</p>
+            <div class="lines-grid">
+                <div class="line-card" onclick="openModal('gestion')">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Gestión de Proyectos</h3>
+                </div>
+                <div class="line-card" onclick="openModal('iiot')">
+                    <i class="fas fa-robot"></i>
+                    <h3>Internet Industrial de las Cosas (IIoT)</h3>
+                </div>
+                <div class="line-card" onclick="openModal('sostenibilidad')">
+                    <i class="fas fa-recycle"></i>
+                    <h3>Procesos Industriales Sostenibles</h3>
+                </div>
+                <div class="line-card" onclick="openModal('fabricacion')">
+                    <i class="fas fa-industry"></i>
+                    <h3>Procesos de Fabricación</h3>
+                </div>
+                <div class="line-card" onclick="openModal('simulacion')">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Simulación Productiva</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NÚCLEO ACADÉMICO -->
     <section id="profesores" class="section-padding bg-light">
         <div class="container">
             <h2 class="section-title">Núcleo Académico Básico</h2>
+            <p class="section-subtitle">Haz clic en un docente para ver su CV y proyectos actuales.</p>
             <div class="professors-grid">
-                
-                <!-- 1. Dr. Galaviz -->
-                <div class="prof-card">
+                <div class="prof-card" onclick="openProfModal('galaviz')">
                     <img src="img/galaviz.jpg" alt="Dr. Galaviz">
                     <h4>Dr. José Víctor Galaviz Rodríguez</h4>
-                    <p class="role">Líder del Cuerpo Académico</p>
-                    <p class="small">Línea: Gestión de Proyectos</p>
-                    <a href="mailto:galaviz_4@uttlaxcala.edu.mx" class="mail-link">galaviz_4@uttlaxcala.edu.mx</a>
+                    <p class="role">Líder de Investigación</p>
                 </div>
-
-                <!-- 2. Dra. Sonia -->
-                <div class="prof-card">
+                <div class="prof-card" onclick="openProfModal('sonia')">
                     <img src="img/sonia.jpg" alt="Dra. Sonia">
                     <h4>Dra. Sonia López Rodríguez</h4>
-                    <p class="role">Responsable IIoT</p>
-                    <p class="small">Línea: Industria 4.0 / Ciencias Inmersivas</p>
-                    <a href="mailto:sonnysutt@uttlaxcala.edu.mx" class="mail-link">sonnysutt@uttlaxcala.edu.mx</a>
+                    <p class="role">Responsable IIoT / RA</p>
                 </div>
-
-                <!-- 3. Dr. Javier Moreno -->
-                <div class="prof-card">
+                <div class="prof-card" onclick="openProfModal('javier')">
                     <img src="img/javier.jpg" alt="Dr. Javier">
                     <h4>Dr. Francisco Javier Espinosa Moreno</h4>
-                    <p class="role">Investigador SNII</p>
-                    <p class="small">Línea: Sistemas Energéticos Sustentables</p>
-                    <a href="mailto:francisco.espinosa@uttlaxcala.edu.mx" class="mail-link">francisco.espinosa@uttlaxcala.edu.mx</a>
+                    <p class="role">Investigador Sistemas Energéticos</p>
                 </div>
-
-                <!-- 4. Dr. Corona -->
-                <div class="prof-card">
+                <div class="prof-card" onclick="openProfModal('corona')">
                     <img src="img/corona.jpg" alt="Dr. Corona">
                     <h4>Dr. José Luis Hernández Corona</h4>
-                    <p class="role">Investigador</p>
-                    <p class="small">Línea: Automatización y Control</p>
-                    <a href="mailto:joseluis.hernandez@uttlaxcala.edu.mx" class="mail-link">joseluis.hernandez@uttlaxcala.edu.mx</a>
+                    <p class="role">Especialista en Automatización</p>
                 </div>
-
-                <!-- 5. Dr. Román Daniel -->
-                <div class="prof-card">
+                <div class="prof-card" onclick="openProfModal('roman')">
                     <img src="img/roman.jpg" alt="Dr. Roman">
                     <h4>Dr. Román Daniel Romero Mitre</h4>
-                    <p class="role">Investigador</p>
-                    <p class="small">Línea: Manufactura Avanzada</p>
-                    <a href="mailto:roman.romero@uttlaxcala.edu.mx" class="mail-link">roman.romero@uttlaxcala.edu.mx</a>
+                    <p class="role">Experto en Manufactura CNC</p>
                 </div>
-
-                <!-- 6. Mtro. Jonny Carmona -->
-                <div class="prof-card">
-                    <img src="img/jonny.jpg" alt="Mtro. Jonny">
+                <div class="prof-card" onclick="openProfModal('jonny')">
+                    <img src="img/jonny.jpg" alt="M.I. Jonny">
                     <h4>M.I. Jonny Carmona Reyes</h4>
-                    <p class="role">Investigador</p>
-                    <p class="small">Línea: Educación Técnica y Automatización</p>
-                    <a href="mailto:jonny.carmona@uttlaxcala.edu.mx" class="mail-link">jonny.carmona@uttlaxcala.edu.mx</a>
+                    <p class="role">Especialista en Automatización Educativa</p>
                 </div>
-
-                <!-- 7. Mtro. Ricardo Ramos -->
-                <div class="prof-card">
-                    <img src="img/ricardo.jpg" alt="Mtro. Ricardo">
+                <div class="prof-card" onclick="openProfModal('ricardo')">
+                    <img src="img/ricardo.jpg" alt="M. en C. Ricardo">
                     <h4>M. en C. Ricardo Ramos Aguilar</h4>
-                    <p class="role">Investigador</p>
-                    <p class="small">Línea: Inteligencia Artificial / Machine Learning</p>
-                    <a href="mailto:ricardo.ramos@uttlaxcala.edu.mx" class="mail-link">ricardo.ramos@uttlaxcala.edu.mx</a>
+                    <p class="role">Investigador Machine Learning</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN DE PROYECTOS DESTACADOS -->
+    <!-- SECCIÓN DE PROYECTOS Y PUBLICACIONES -->
     <section id="proyectos" class="section-padding">
         <div class="container">
-            <h2 class="section-title">Proyectos Colaborativos</h2>
+            <h2 class="section-title">Producción Académica Reciente</h2>
             <div class="projects-grid">
                 <div class="project-item">
                     <h4>Patentes de Innovación</h4>
-                    <p>Desarrollo de deshidratadores solares y soportes ergonómicos [1, 2].</p>
+                    <p>Diseño de máquina de selección de semillas y soportes industriales ergonómicos [1, 2].</p>
                 </div>
                 <div class="project-item">
-                    <h4>Ciencias Inmersivas</h4>
-                    <p>Aplicaciones de Realidad Virtual para la preservación de la cultura Otomí [3, 4].</p>
+                    <h4>Sostenibilidad</h4>
+                    <p>Modelado de reactores para obtención de hidrógeno a partir de glicerol [3].</p>
                 </div>
                 <div class="project-item">
-                    <h4>Energía Hidrógeno</h4>
-                    <p>Estudios sobre producción de hidrógeno verde para procesos industriales [5, 6].</p>
+                    <h4>Tecnologías Inmersivas</h4>
+                    <p>Aplicaciones de Realidad Virtual para la preservación de lenguas indígenas y plantas medicinales [4, 5].</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PUBLICACIONES -->
-    <section id="publicaciones" class="section-padding bg-light">
-        <div class="container">
-            <h2 class="section-title">Producción Académica</h2>
-            <div class="pub-list">
-                <ul>
-                    <li><strong>Perspectivas Estratégicas:</strong> Publicaciones en Technological Forecasting and Social Change [7].</li>
-                    <li><strong>Usabilidad Digital:</strong> Investigaciones en la revista RIIIT sobre apps inmersivas [8, 9].</li>
-                    <li><strong>Libros:</strong> "Sostenibilidad: Datos, Procesos y Equilibrio" (Palibrio, 2024) [10].</li>
-                </ul>
             </div>
         </div>
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="section-padding">
+    <section id="contacto" class="section-padding bg-light">
         <div class="container contact-flex">
             <div class="contact-info">
                 <h2>Contacto Institucional</h2>
@@ -149,7 +138,7 @@
                 <p><i class="fas fa-envelope"></i> posgrado@uttlaxcala.edu.mx</p>
             </div>
             <form class="contact-form">
-                <input type="text" placeholder="Tu Nombre" required>
+                <input type="text" placeholder="Nombre" required>
                 <input type="email" placeholder="Correo" required>
                 <textarea placeholder="Mensaje" rows="4"></textarea>
                 <button type="submit" class="btn">Enviar</button>
@@ -157,52 +146,18 @@
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Maestría en Ingeniería - MIOPM | Universidad Tecnológica de Tlaxcala</p>
-    </footer>
-<!-- SECCIÓN LÍNEAS DE INVESTIGACIÓN (LGAC) CON CLICK EVENT -->
-<section id="lineas" class="section-padding">
-    <div class="container">
-        <h2 class="section-title">Líneas de Generación y Aplicación del Conocimiento</h2>
-        <div class="lines-grid">
-            <div class="line-card" onclick="openModal('gestion')">
-                <i class="fas fa-project-diagram"></i>
-                <h3>Gestión de Proyectos</h3>
-                <p>Haz clic para ver descripción y plan de estudios.</p>
-            </div>
-            <div class="line-card" onclick="openModal('iiot')">
-                <i class="fas fa-robot"></i>
-                <h3>Internet Industrial de las Cosas (IIoT)</h3>
-                <p>Haz clic para ver descripción y plan de estudios.</p>
-            </div>
-            <div class="line-card" onclick="openModal('sostenibilidad')">
-                <i class="fas fa-recycle"></i>
-                <h3>Procesos Industriales Sostenibles</h3>
-                <p>Haz clic para ver descripción y plan de estudios.</p>
-            </div>
-            <div class="line-card" onclick="openModal('fabricacion')">
-                <i class="fas fa-industry"></i>
-                <h3>Procesos de Fabricación</h3>
-                <p>Haz clic para ver descripción y plan de estudios.</p>
-            </div>
-            <div class="line-card" onclick="openModal('simulacion')">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Simulación Productiva</h3>
-                <p>Haz clic para ver descripción y plan de estudios.</p>
-            </div>
+    <!-- VENTANA MODAL ÚNICA -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
         </div>
     </div>
-</section>
 
-<!-- MODAL PARA DETALLES DE LÍNEAS -->
-<div id="lineModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div id="modalBody">
-            <!-- El contenido se cargará dinámicamente con JS -->
-        </div>
-    </div>
-</div>
-    
+    <footer>
+        <p>&copy; 2026 MIOPM - Universidad Tecnológica de Tlaxcala</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
