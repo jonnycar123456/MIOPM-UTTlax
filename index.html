@@ -21,11 +21,22 @@
         </ul>
     </nav>
 
-    <!-- INICIO -->
+    <!-- INICIO CON SLIDER DE ACTIVIDADES -->
     <header id="inicio" class="hero">
+        <div class="slider">
+            <!-- Diapositiva 1: Campus / Institucional -->
+            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/campus.jpg');"></div>
+            <!-- Diapositiva 2: Actividad de Laboratorio (IIoT/Robótica) -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/actividad1.jpg');"></div>
+            <!-- Diapositiva 3: Tecnologías Inmersivas (Realidad Virtual) -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/actividad2.jpg');"></div>
+            <!-- Diapositiva 4: Vinculación Industrial -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/actividad3.jpg');"></div>
+        </div>
+        
         <div class="hero-content">
             <h1>Maestría en Ingeniería para la Optimización de Procesos de Manufactura</h1>
-            <p>Excelencia académica y tecnológica para la industria regional.</p>
+            <p>Formación avanzada en Industria 4.0, Sostenibilidad y Gestión Estratégica.</p>
             <div class="hero-buttons">
                 <a href="#lineas" class="btn">Planes de Estudio</a>
                 <a href="#profesores" class="btn btn-alt">Nuestro Núcleo</a>
@@ -33,11 +44,11 @@
         </div>
     </header>
 
-    <!-- LÍNEAS DE INVESTIGACIÓN -->
+    <!-- LÍNEAS DE INVESTIGACIÓN (LGAC) -->
     <section id="lineas" class="section-padding">
         <div class="container">
             <h2 class="section-title">Líneas de Generación y Aplicación del Conocimiento</h2>
-            <p class="section-subtitle">Haz clic en una línea para ver su descripción y mapa curricular.</p>
+            <p class="section-subtitle">Explora nuestras áreas de especialización y sus materias.</p>
             <div class="lines-grid">
                 <div class="line-card" onclick="openModal('gestion')">
                     <i class="fas fa-project-diagram"></i>
@@ -67,7 +78,6 @@
     <section id="profesores" class="section-padding bg-light">
         <div class="container">
             <h2 class="section-title">Núcleo Académico Básico</h2>
-            <p class="section-subtitle">Haz clic en un docente para ver su CV y proyectos actuales.</p>
             <div class="professors-grid">
                 <div class="prof-card" onclick="openProfModal('galaviz')">
                     <img src="img/galaviz.jpg" alt="Dr. Galaviz">
@@ -108,22 +118,22 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE PROYECTOS Y PUBLICACIONES -->
+    <!-- PROYECTOS DESTACADOS -->
     <section id="proyectos" class="section-padding">
         <div class="container">
-            <h2 class="section-title">Producción Académica Reciente</h2>
+            <h2 class="section-title">Impacto y Resultados</h2>
             <div class="projects-grid">
                 <div class="project-item">
-                    <h4>Patentes de Innovación</h4>
-                    <p>Diseño de máquina de selección de semillas y soportes industriales ergonómicos [1, 2].</p>
+                    <h4>Patentes IMPI</h4>
+                    <p>Modelos de deshidratadores solares y soportes ergonómicos industriales [4, 5].</p>
                 </div>
                 <div class="project-item">
                     <h4>Sostenibilidad</h4>
-                    <p>Modelado de reactores para obtención de hidrógeno a partir de glicerol [3].</p>
+                    <p>Investigación en producción de hidrógeno verde y optimización energética [6].</p>
                 </div>
                 <div class="project-item">
-                    <h4>Tecnologías Inmersivas</h4>
-                    <p>Aplicaciones de Realidad Virtual para la preservación de lenguas indígenas y plantas medicinales [4, 5].</p>
+                    <h4>Transferencia Tecnológica</h4>
+                    <p>Sistemas de gestión automatizada para empresas del sector automotriz [3, 7].</p>
                 </div>
             </div>
         </div>
@@ -133,8 +143,8 @@
     <section id="contacto" class="section-padding bg-light">
         <div class="container contact-flex">
             <div class="contact-info">
-                <h2>Contacto Institucional</h2>
-                <p><i class="fas fa-map-marker-alt"></i> Universidad Tecnológica de Tlaxcala, Huamantla.</p>
+                <h2>Contacto</h2>
+                <p><i class="fas fa-map-marker-alt"></i> UTTlaxcala, Huamantla, Tlaxcala.</p>
                 <p><i class="fas fa-envelope"></i> posgrado@uttlaxcala.edu.mx</p>
             </div>
             <form class="contact-form">
@@ -146,7 +156,7 @@
         </div>
     </section>
 
-    <!-- VENTANA MODAL ÚNICA -->
+    <!-- MODAL ÚNICO -->
     <div id="infoModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -155,7 +165,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 MIOPM - Universidad Tecnológica de Tlaxcala</p>
+        <p>&copy; 2026 Maestría MIOPM | Universidad Tecnológica de Tlaxcala</p>
     </footer>
 
     <script src="script.js"></script>
