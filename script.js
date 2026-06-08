@@ -37,6 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Animación simple de aparición
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}`;
+document.head.appendChild(style);
+
 // FUNCIÓN PARA MOSTRAR DETALLES DE LÍNEAS (Simulación de Modal)
 function showDetail(lineId) {
     alert("Cargando información detallada de la línea de investigación extraída de las matrices de competencias [7-9]...");
@@ -101,12 +110,3 @@ window.onclick = function(event) {
     let modal = document.getElementById("lineModal");
     if (event.target == modal) { modal.style.display = "none"; }
 }
-
-// Animación simple de aparición
-const style = document.createElement('style');
-style.innerHTML = `
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}`;
-document.head.appendChild(style);
