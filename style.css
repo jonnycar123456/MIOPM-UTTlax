@@ -188,4 +188,67 @@ body {
     text-decoration: none;
     word-break: break-all; /* Evita que correos largos rompan la tarjeta */
 }
+    /* ESTILOS DEL MODAL */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+    position: relative;
+    animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    right: 20px; top: 10px;
+    color: #aaa;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover { color: var(--primary); }
+
+/* ESTILOS DE LA TABLA DEL PLAN DE ESTUDIOS */
+.curriculum-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.curriculum-table th {
+    background-color: var(--primary);
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.curriculum-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.curriculum-table tr:nth-child(even) { background-color: #f9f9f9; }
+
+.modal h2 { color: var(--primary); margin-bottom: 15px; }
+.modal h3 { color: var(--secondary); margin-top: 20px; }
 }
