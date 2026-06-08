@@ -3,52 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maestría en Ingeniería - MIOPM | UTTlaxcala</title>
+    <title>MIOPM - Universidad Tecnológica de Tlaxcala</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- NAVEGACIÓN -->
     <nav class="navbar">
         <div class="logo">MIOPM - UTT</div>
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#lineas">Líneas</a></li>
             <li><a href="#profesores">Núcleo Académico</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#proyectos">Resultados</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
-    <!-- INICIO CON SLIDER DE ACTIVIDADES -->
+    <!-- HERO SLIDER -->
     <header id="inicio" class="hero">
         <div class="slider">
-            <!-- Diapositiva 1: Campus / Institucional -->
             <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/campus.jpg');"></div>
-            <!-- Diapositiva 2: Actividad de Laboratorio (IIoT/Robótica) -->
             <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/actividad1.jpg');"></div>
-            <!-- Diapositiva 3: Tecnologías Inmersivas (Realidad Virtual) -->
             <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/actividad2.jpg');"></div>
-            <!-- Diapositiva 4: Vinculación Industrial -->
             <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/actividad3.jpg');"></div>
         </div>
-        
         <div class="hero-content">
             <h1>Maestría en Ingeniería para la Optimización de Procesos de Manufactura</h1>
-            <p>Formación avanzada en Industria 4.0, Sostenibilidad y Gestión Estratégica.</p>
+            <p>Innovación tecnológica y desarrollo industrial sostenible en Tlaxcala.</p>
             <div class="hero-buttons">
-                <a href="#lineas" class="btn">Planes de Estudio</a>
-                <a href="#profesores" class="btn btn-alt">Nuestro Núcleo</a>
+                <a href="#lineas" class="btn">Líneas de Investigación</a>
+                <a href="#profesores" class="btn btn-alt">Núcleo Académico</a>
             </div>
         </div>
     </header>
 
-    <!-- LÍNEAS DE INVESTIGACIÓN (LGAC) -->
+    <!-- LÍNEAS DE INVESTIGACIÓN -->
     <section id="lineas" class="section-padding">
         <div class="container">
-            <h2 class="section-title">Líneas de Generación y Aplicación del Conocimiento</h2>
-            <p class="section-subtitle">Explora nuestras áreas de especialización y sus materias.</p>
+            <h2 class="section-title">Líneas de Generación y Aplicación del Conocimiento (LGAC)</h2>
             <div class="lines-grid">
                 <div class="line-card" onclick="openModal('gestion')">
                     <i class="fas fa-project-diagram"></i>
@@ -82,12 +75,12 @@
                 <div class="prof-card" onclick="openProfModal('galaviz')">
                     <img src="img/galaviz.jpg" alt="Dr. Galaviz">
                     <h4>Dr. José Víctor Galaviz Rodríguez</h4>
-                    <p class="role">Líder de Investigación</p>
+                    <p class="role">Líder del Cuerpo Académico</p>
                 </div>
                 <div class="prof-card" onclick="openProfModal('sonia')">
                     <img src="img/sonia.jpg" alt="Dra. Sonia">
                     <h4>Dra. Sonia López Rodríguez</h4>
-                    <p class="role">Responsable IIoT / RA</p>
+                    <p class="role">Especialista en Ciencias Inmersivas</p>
                 </div>
                 <div class="prof-card" onclick="openProfModal('javier')">
                     <img src="img/javier.jpg" alt="Dr. Javier">
@@ -102,38 +95,38 @@
                 <div class="prof-card" onclick="openProfModal('roman')">
                     <img src="img/roman.jpg" alt="Dr. Roman">
                     <h4>Dr. Román Daniel Romero Mitre</h4>
-                    <p class="role">Experto en Manufactura CNC</p>
+                    <p class="role">Doctor en Manufactura Avanzada</p>
                 </div>
                 <div class="prof-card" onclick="openProfModal('jonny')">
                     <img src="img/jonny.jpg" alt="M.I. Jonny">
                     <h4>M.I. Jonny Carmona Reyes</h4>
-                    <p class="role">Especialista en Automatización Educativa</p>
+                    <p class="role">Especialista en Scripting Educativo</p>
                 </div>
                 <div class="prof-card" onclick="openProfModal('ricardo')">
                     <img src="img/ricardo.jpg" alt="M. en C. Ricardo">
                     <h4>M. en C. Ricardo Ramos Aguilar</h4>
-                    <p class="role">Investigador Machine Learning</p>
+                    <p class="role">Experto en Machine Learning</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROYECTOS DESTACADOS -->
+    <!-- PROYECTOS -->
     <section id="proyectos" class="section-padding">
         <div class="container">
-            <h2 class="section-title">Impacto y Resultados</h2>
+            <h2 class="section-title">Producción y Resultados</h2>
             <div class="projects-grid">
                 <div class="project-item">
-                    <h4>Patentes IMPI</h4>
-                    <p>Modelos de deshidratadores solares y soportes ergonómicos industriales [4, 5].</p>
-                </div>
-                <div class="project-item">
-                    <h4>Sostenibilidad</h4>
-                    <p>Investigación en producción de hidrógeno verde y optimización energética [6].</p>
-                </div>
-                <div class="project-item">
                     <h4>Transferencia Tecnológica</h4>
-                    <p>Sistemas de gestión automatizada para empresas del sector automotriz [3, 7].</p>
+                    <p>Optimización de procesos en SMP Automotive Tlaxcala y Puebla mediante sistemas de gestión automatizados [12, 13].</p>
+                </div>
+                <div class="project-item">
+                    <h4>Patentes IMPI</h4>
+                    <p>Modelos industriales de deshidratadores solares y soportes ergonómicos para el sector productivo [14, 15].</p>
+                </div>
+                <div class="project-item">
+                    <h4>Impacto Social</h4>
+                    <p>Preservación de las lenguas Otomí y Náhuatl mediante entornos virtuales y aplicaciones interactivas [16-18].</p>
                 </div>
             </div>
         </div>
@@ -144,13 +137,14 @@
         <div class="container contact-flex">
             <div class="contact-info">
                 <h2>Contacto</h2>
-                <p><i class="fas fa-map-marker-alt"></i> UTTlaxcala, Huamantla, Tlaxcala.</p>
+                <p><i class="fas fa-map-marker-alt"></i> Universidad Tecnológica de Tlaxcala, Huamantla.</p>
                 <p><i class="fas fa-envelope"></i> posgrado@uttlaxcala.edu.mx</p>
+                <p><i class="fas fa-phone"></i> 247 472 5300</p>
             </div>
             <form class="contact-form">
                 <input type="text" placeholder="Nombre" required>
                 <input type="email" placeholder="Correo" required>
-                <textarea placeholder="Mensaje" rows="4"></textarea>
+                <textarea placeholder="Mensaje" rows="4" required></textarea>
                 <button type="submit" class="btn">Enviar</button>
             </form>
         </div>
