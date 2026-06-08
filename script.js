@@ -1,68 +1,36 @@
-// CONTROL DEL SLIDER AUTOMÁTICO
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
-function nextSlide() {
-    // Si no hay slides, no hacer nada
-    if (slides.length === 0) return;
-    
-    // Quitar la clase 'active' de la imagen actual
-    slides[currentSlide].classList.remove('active');
-    
-    // Calcular el índice de la siguiente imagen
-    currentSlide = (currentSlide + 1) % slides.length;
-    
-    // Añadir la clase 'active' a la nueva imagen
-    slides[currentSlide].classList.add('active');
-}
-
-function zoomImage() {
-    // 1. Buscamos la imagen que tiene la clase 'active' en ese momento
-    const activeSlide = document.querySelector('.slide.active');
-    
-    // 2. Extraemos la URL de la imagen de fondo
-    // Esta línea limpia el texto "url('...')" para obtener solo el link
-    let bgImage = activeSlide.style.backgroundImage;
-    let imageUrl = bgImage.replace('url("', '').replace('")', '').replace('linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), ', '');
-
-    // 3. Obtenemos el modal y el cuerpo del modal
-    const modal = document.getElementById("infoModal");
-    const body = document.getElementById("modalBody");
-
-    // 4. Insertamos la imagen en el modal y lo mostramos
-    body.innerHTML = `
-        <h3 style="margin-bottom:15px; color:var(--primary);">Vista de Actividad</h3>
-        <img src="${imageUrl}" alt="Vista ampliada">
-    `;
-    modal.style.display = "block";
-}
-
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-
-// Función manual para las flechas
+// CAMBIO DE SLIDE (MANUAL Y AUTOMÁTICO)
 function changeSlide(direction) {
-    // 1. Quitar la clase active de la imagen actual
     slides[currentSlide].classList.remove('active');
-    
-    // 2. Calcular la nueva posición (adelante o atrás)
     currentSlide = (currentSlide + direction + slides.length) % slides.length;
-    
-    // 3. Mostrar la nueva imagen
     slides[currentSlide].classList.add('active');
 }
 
-// Función automática (cada 5 segundos)
-setInterval(() => {
-    changeSlide(1);
-}, 5000);
+setInterval(() => changeSlide(1), 5000); // Cambio cada 5 segundos
 
-// Mantener las funciones de los modales que ya tenías (Líneas y Profesores)
-function closeModal() {
-    document.getElementById("infoModal").style.display = "none";
+// FUNCIÓN ZOOM DE IMAGEN
+function zoomImage() {
+    const activeSlide = document.querySelector('.slide.active');
+    let bgImage = activeSlide.style.backgroundImage;
+    let url = bgImage.replace('url("', '').replace('")', '').replace('linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), ', '');
+    
+    document.getElementById("modalBody").innerHTML = `<img src="${url}" style="width:100%">`;
+    document.getElementById("infoModal").style.display = "block";
 }
 
-window.onclick = (e) => {
-    const modal = document.getElementById("infoModal");
-    if(e.target == modal) closeModal();
+// DATOS DE DOCENTES (Ejemplo de 2, debes completar los 7)
+const profData = {
+    galaviz: { name: "Dr. José Víctor Galaviz Rodríguez", cv: "Doctor en Planeación Estratégica. Líder de Cuerpo Académico.", projects: ["Patente: Máquina de selección de semillas."] },
+    sonia: { name: "Dra. Sonia López Rodríguez", cv: "Doctora en Tecnología. Experta en Realidad Virtual.", projects: ["RA para preservación de lenguas indígenas."] }
+    // Agregar javier, corona, roman, jonny y ricardo siguiendo el mismo formato
+};
+
+function openProfModal(id) {
+    const data = profData[id];
+    document.getElementById("modalBody").innerHTML = `<h2>${data.name}</h2><p>${data.cv}</p><h3>Proyectos:</h3><ul>${data.projects.map(p => `<li>${p}</li>`).join('')}</ul>`;
+    document.getElementById("infoModal").style.display = "block";
 }
+
+function closeModal() { document.getElementById("infoModal").style.display = "none"; }
